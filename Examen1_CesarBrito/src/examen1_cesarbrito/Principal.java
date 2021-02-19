@@ -87,6 +87,19 @@ public class Principal extends javax.swing.JFrame {
         button_agregar = new javax.swing.JButton();
         rb_admin = new javax.swing.JRadioButton();
         rb_norm = new javax.swing.JRadioButton();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabla_buscar = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        tf_searchIsbn = new javax.swing.JTextField();
+        tf_searchTitle = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        tf_searchAutor = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        tf_searchGenero = new javax.swing.JTextField();
+        b_search = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -424,6 +437,94 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar usuario", jPanel1);
 
+        tabla_buscar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Autor", "Titulo", "Genero", "Editorial", "ISBN", "Estado"
+            }
+        ));
+        jScrollPane3.setViewportView(tabla_buscar);
+
+        jLabel18.setText("Que categoria que desea buscar");
+
+        jLabel19.setText("ISBN");
+
+        jLabel20.setText("Titulo");
+
+        jLabel21.setText("Autor");
+
+        jLabel22.setText("Genero");
+
+        tf_searchGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_searchGeneroActionPerformed(evt);
+            }
+        });
+
+        b_search.setText("Search");
+        b_search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_searchMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel19)
+                    .addComponent(tf_searchIsbn)
+                    .addComponent(jLabel20)
+                    .addComponent(tf_searchTitle)
+                    .addComponent(jLabel21)
+                    .addComponent(tf_searchAutor)
+                    .addComponent(jLabel22)
+                    .addComponent(tf_searchGenero)
+                    .addComponent(b_search))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(713, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addGap(24, 24, 24))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_searchIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel20)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_searchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_searchAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_searchGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(b_search, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Buscar Libro", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -431,7 +532,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 924, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,6 +632,11 @@ public class Principal extends javax.swing.JFrame {
                 q.addRow(nuevolibro);
                 tabla_sacar.setModel(q);
 
+                Object[] newbook = {x.getAutor(), x.getTitulo(), x.getGenero(), x.getEditorial(), x.getIsbn(), x.getEstado()};
+                DefaultTableModel m = (DefaultTableModel) tabla_buscar.getModel();
+                m.addRow(newbook);
+                tabla_buscar.setModel(m);
+
             } else {
                 JOptionPane.showMessageDialog(this, "El codigo no pertenece a un administrador");
             }
@@ -612,6 +718,27 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_isbnActionPerformed
 
+    private void tf_searchGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_searchGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_searchGeneroActionPerformed
+
+    private void b_searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_searchMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (tf_searchAutor.getText().length() > 0) {
+                
+            } else if (tf_searchGenero.getText().length() > 0) {
+
+            } else if (tf_searchIsbn.getText().length() > 0) {
+
+            } else if (tf_searchTitle.getText().length() > 0) {
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_b_searchMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -648,6 +775,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_search;
     private javax.swing.ButtonGroup botones;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -668,7 +796,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -680,8 +813,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jf_apellido;
     private javax.swing.JTextField jf_codigo;
@@ -689,6 +824,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jf_nombre;
     private javax.swing.JRadioButton rb_admin;
     private javax.swing.JRadioButton rb_norm;
+    private javax.swing.JTable tabla_buscar;
     private javax.swing.JTable tabla_libros;
     private javax.swing.JTable tabla_sacar;
     private javax.swing.JTextField tf_autor;
@@ -698,6 +834,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_genero;
     private javax.swing.JTextField tf_idioma;
     private javax.swing.JFormattedTextField tf_isbn;
+    private javax.swing.JTextField tf_searchAutor;
+    private javax.swing.JTextField tf_searchGenero;
+    private javax.swing.JTextField tf_searchIsbn;
+    private javax.swing.JTextField tf_searchTitle;
     private javax.swing.JTextField tf_titulo;
     private javax.swing.JTextField tf_year;
     // End of variables declaration//GEN-END:variables
